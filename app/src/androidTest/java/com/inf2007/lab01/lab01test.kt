@@ -22,13 +22,13 @@ class lab01test {
         }
 
         // Verify that the TextField exists
-        composeTestRule.onNodeWithTag("nameInput").assertIsDisplayed()
+        composeTestRule.onNodeWithTag("UserInput").assertIsDisplayed()
 
         // Verify that the Submit button exists
         composeTestRule.onNodeWithTag("submitButton").assertIsDisplayed()
 
         // Initially, the greeting message should not exist
-        composeTestRule.onNodeWithTag("greetingMsg").assertDoesNotExist()
+        composeTestRule.onNodeWithTag("greeting").assertDoesNotExist()
     }
 
     @Test
@@ -38,7 +38,7 @@ class lab01test {
         }
 
         // Enter a name into the TextField
-        composeTestRule.onNodeWithTag("nameInput")
+        composeTestRule.onNodeWithTag("UserInput")
             .performTextInput("John")
 
         // Click the Submit button
@@ -46,7 +46,7 @@ class lab01test {
             .performClick()
 
         // Verify the greeting message is displayed with the correct text
-        composeTestRule.onNodeWithTag("greetingMsg")
+        composeTestRule.onNodeWithTag("greeting")
             .assertIsDisplayed()
             .assertTextEquals("Hello John!, Welcome to INF2007!")
     }
@@ -62,7 +62,7 @@ class lab01test {
             .performClick()
 
         // Verify the greeting message does not exist
-        composeTestRule.onNodeWithTag("greetingMsg").assertDoesNotExist()
+        composeTestRule.onNodeWithTag("greeting").assertDoesNotExist()
     }
 
     @Test
@@ -72,25 +72,25 @@ class lab01test {
         }
 
         // Enter the first name and click Submit
-        composeTestRule.onNodeWithTag("nameInput")
+        composeTestRule.onNodeWithTag("UserInput")
             .performTextInput("Alice")
         composeTestRule.onNodeWithTag("submitButton")
             .performClick()
 
         // Verify the greeting for "Alice"
-        composeTestRule.onNodeWithTag("greetingMsg")
+        composeTestRule.onNodeWithTag("greeting")
             .assertTextEquals("Hello Alice!, Welcome to INF2007!")
 
         // Enter a new name and click Submit
-        composeTestRule.onNodeWithTag("nameInput")
+        composeTestRule.onNodeWithTag("UserInput")
             .performTextClearance()
-        composeTestRule.onNodeWithTag("nameInput")
+        composeTestRule.onNodeWithTag("UserInput")
             .performTextInput("Bob")
         composeTestRule.onNodeWithTag("submitButton")
             .performClick()
 
         // Verify the greeting for "Bob"
-        composeTestRule.onNodeWithTag("greetingMsg")
+        composeTestRule.onNodeWithTag("greeting")
             .assertTextEquals("Hello Bob!, Welcome to INF2007!")
     }
 }
